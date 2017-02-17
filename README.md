@@ -1,3 +1,4 @@
+# Step1
 ## 初始化项目
 ```
 npm init
@@ -53,6 +54,7 @@ node_modules/.bin/webpack app/main.js public/bundle.js
 ```
 webpack app/main.js  public/bundle.js
 ```
+# Step2
 ## 使用配置文件
  ### 在当前练习文件夹的根目录下新建一个名为webpack.config.js的文件
  ```
@@ -87,6 +89,7 @@ webpack
 ```
 npm run webpack
 ```
+# Step3
 ## 生成Source Maps
 
 devtool选项  |	配置结果
