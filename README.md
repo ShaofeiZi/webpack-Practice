@@ -76,3 +76,14 @@ webpack
   }
 ```
 **注：package.json中的脚本部分已经默认在命令前添加了node_modules/.bin路径，所以无论是全局还是局部安装的Webpack，你都不需要写前面那指明详细的路径了。**
+### npm的start是一个特殊的脚本名称，它的特殊性表现在，在命令行中使用npm start就可以执行相关命令，如果对应的此脚本名称不是start，想要在命令行中运行时，需要这样用npm run {script name}如npm run build
+
+```
+  "scripts": {
+    "webpack":"webpack" 
+  },
+```
+### 这样就需要在终端运行 
+```
+npm run webpack
+```
