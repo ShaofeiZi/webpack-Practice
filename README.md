@@ -395,3 +395,18 @@ UglifyJS plugins 是内置插件，用于代码压缩混淆
 ```
 
 OK  然后直接去配置文件的plugins配置，重新生成bundle文件 你会发现。。变量名变成a,b,c了。。。。
+### 分版本处理
+开发 测试 生产 需要的流程不一样，就需要多个配置文件了，比如生产环境用webpack.production.config.js这个配置
+在package.json加入快捷启动方式
+```
+ "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress" 
+```
+> NODE_ENV是node的环境变量 一般根据它来切换一些配置 也可以通过
+```
+	new webpack.DefinePlugin({
+			'process.env.environment': JSON.stringify(process.env.NODE_ENV)
+		}),
+```
+传给前端  对代码进行处理
+
+通过指定webpack config文件的方式 也可以切换不同的配置文件逻辑

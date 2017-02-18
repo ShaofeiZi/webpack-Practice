@@ -51,7 +51,10 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.BannerPlugin("嘿嘿，生效了"),//在这个数组中new一个就可以了
-		new webpack.optimize.UglifyJsPlugin() // 代码混淆
+		new webpack.optimize.UglifyJsPlugin(), // 代码混淆
+		new webpack.DefinePlugin({
+			'process.env.environment': JSON.stringify(process.env.NODE_ENV)
+		}),
 
 	],
 
