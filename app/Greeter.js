@@ -1,7 +1,14 @@
-var testText = require('./jsontext.json'); //引入json
+import React, {Component} from 'react'
+import testText from './jsontext.json';
 
-module.exports = function () {
-  var greet = document.createElement('div');
-  greet.textContent = testText.testText; // 使用
-  return greet;
-};
+class Greeter extends Component{
+  render() {
+    return (
+      <div>
+        {testText.testText}
+      </div>
+    );
+  }
+}
+
+export default Greeter

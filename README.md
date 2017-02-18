@@ -180,5 +180,66 @@ module.exports = function () {
   return greet;
 };
 ```
+###  最常用的Loaders  Babel
+ 不用介绍了吧  编译JavaScript的平台
+#### react的JSX为例
+先安装 嗯 一次性安装多个
+```
+npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react
+```
+嗯 还得装react
+```
+npm install --save react react-dom
+```
+#### 再去把Greeter改成react组件
+```
+import React, {Component} from 'react'
+import testText from './jsontext.json';
 
- 
+class Greeter extends Component{
+  render() {
+    return (
+      <div>
+        {testText.testText}
+      </div>
+    );
+  }
+}
+
+export default Greeter
+```
+#### 主入口文件 main
+```
+import React from 'react';
+import {render} from 'react-dom';
+import Greeter from './Greeter';
+
+render(<Greeter />, document.getElementById('root'));
+```
+ ####  建议用.babelrc对Babel进行配置 不过演示么  无所谓了
+ 虽然能在webpack.config.js配置，但是  那么多 真的好么。
+```
+{
+  "presets": ["react", "es2015"]
+}
+```
+#### 最后改一下设置
+```
+	module: {//在配置文件里添加JSON loader
+		loaders: [
+			{
+				test: /\.json$/,
+				loader: "json-loader" 
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader', //在webpack的module部分的loaders里进行配置即可
+				query: {
+					presets: ['es2015', 'react']
+				}
+			}
+		]
+	},
+
+```
