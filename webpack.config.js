@@ -24,7 +24,13 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: [ 'style-loader', 'css-loader' ]//添加对样式表的处理
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: { modules: true }
+					}
+				]
 			}
 		]
 	},

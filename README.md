@@ -270,4 +270,49 @@ body{
 ```
 import './main.css';//使用require导入css文件
 ```
->通常情况下，css会和js打包到同一个文件中，并不会打包为一个单独的css文件，不过通过合适的配置webpack也可以把css打包为单独的文件的
+### CSS module
+> 通常情况下，css会和js打包到同一个文件中，并不会打包为一个单独的css文件，不过通过合适的配置webpack也可以把css打包为单独的文件的
+> 好处就是CSS模块，所有的类名，动画名默认都只作用于当前模块（不用费尽心机去起名了。。）😄
+#### 改配置文件
+```
+{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: { modules: true }
+					}
+				]
+}
+```
+#### 写个新模块的css  Greeter.css
+```
+.mod{
+		background-color: blue;
+		font-size: 20px;
+}
+```
+####  在模块中引入css 并使用
+```
+import React, {Component} from 'react'
+import testText from './jsontext.json';
+import styles from './Greeter.css' // 引入css
+
+class Greeter extends Component{
+  render() {
+    return (
+      <div className={styles.mod}>   //使用
+        {testText.testText}
+      </div>
+    );
+  }
+}
+
+export default Greeter
+```
+#### 可以去看效果了
+类名变得只有他妈（webpack）才认识了
+有兴趣可以去瞅瞅文档[我是文档](https://github.com/css-modules/css-modules)
+
+
