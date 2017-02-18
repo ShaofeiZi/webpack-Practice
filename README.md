@@ -243,3 +243,31 @@ render(<Greeter />, document.getElementById('root'));
 	},
 
 ```
+### css
+*webpack提供两个工具处理样式表，css-loader 和 style-loader，二者处理的任务不同，css-loader使你能够使用类似@import 和 url(...)的方法实现 require()的功能,style-loader将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的JS文件中。*
+#### 先安装
+```
+npm install --save-dev style-loader css-loader
+```
+#### 再去改设置
+```
+{
+				test: /\.css$/,
+				loader: [ 'style-loader', 'css-loader' ]//添加对样式表的处理
+}
+```
+
+####  写个css测试下 就叫main.css吧
+```
+html{
+	background-color: red;
+}
+body{
+	font-size: 100px;
+}
+```
+再去 主入口引入。。main.js 文件  前面说过
+```
+import './main.css';//使用require导入css文件
+```
+>通常情况下，css会和js打包到同一个文件中，并不会打包为一个单独的css文件，不过通过合适的配置webpack也可以把css打包为单独的文件的

@@ -12,7 +12,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.json$/,
-				loader: "json-loader" 
+				loader: "json-loader"
 			},
 			{
 				test: /\.js$/,
@@ -21,6 +21,10 @@ module.exports = {
 				query: {
 					presets: ['es2015', 'react']
 				}
+			},
+			{
+				test: /\.css$/,
+				loader: [ 'style-loader', 'css-loader' ]//添加对样式表的处理
 			}
 		]
 	},
