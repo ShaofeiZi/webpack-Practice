@@ -295,6 +295,7 @@ import './main.css';//使用require导入css文件
 ```
 ####  在模块中引入css 并使用
 ```
+
 import React, {Component} from 'react'
 import testText from './jsontext.json';
 import styles from './Greeter.css' // 引入css
@@ -310,7 +311,10 @@ class Greeter extends Component{
 }
 
 export default Greeter
+
 ```
+
+
 #### 可以去看效果了
 类名变得只有他妈（webpack）才认识了
 有兴趣可以去瞅瞅文档[我是文档](https://github.com/css-modules/css-modules)
