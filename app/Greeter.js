@@ -1,5 +1,7 @@
-module.exports = function() {
+var testText = require('./jsontext.json');
+
+module.exports = function () {
   var greet = document.createElement('div');
-  greet.textContent = "好了，第四步OK";
+  greet.textContent = testText.testText;
   return greet;
 };

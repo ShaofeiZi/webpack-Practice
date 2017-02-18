@@ -6,8 +6,20 @@ module.exports = {
 		path: __dirname + "/public",// 打包后的文件存放的地方
 		filename: "bundle.js"// 打包后输出文件的文件名
 	},
+
+
+	module: {//在配置文件里添加JSON loader
+		loaders: [
+			{
+				test: /\.json$/,
+				loader: "json"
+			}
+		]
+	},
+
+
 	devServer: {
-		contentBase: __dirname+"/public", //本地服务器所加载的页面所在的目录
+		contentBase: __dirname + "/public", //本地服务器所加载的页面所在的目录
 		compress: true,  // 是否使用Gzip
 		port: 9000, // 指定端口 不指定端口默认为1080
 		historyApiFallback: true, //不跳转

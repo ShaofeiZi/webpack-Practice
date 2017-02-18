@@ -139,3 +139,30 @@ historyApiFallback	|在开发单页应用时非常有用，它依赖于HTML5 his
     "server": "webpack-dev-server"
   },
 ```
+## Loaders （个人感觉webpack最屌的功能）
+  *使用不同的loader可以处理各种不同的文件*
+### 先去webpack.config.js下的modules关键字下进行配置
+test|一个匹配loaders所处理的文件的拓展名的正则表达式（必须）
+----|----
+loader|loader的名称（必须）
+include/exclude|手动添加必须处理的文件（文件夹）或屏蔽不需要处理的文件（文件夹）（可选）；
+query|为loaders提供额外的设置选项（可选）
+#### 以json为例
+#### 先安装
+```
+npm install --save-dev json-loader
+```
+#### 再去改一下配置
+```
+
+	module: {//在配置文件里添加JSON loader
+		loaders: [
+			{
+				test: /\.json$/,
+				loader: "json"
+			}
+		]
+	},
+```
+
+ 
