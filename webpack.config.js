@@ -28,9 +28,12 @@ module.exports = {
 					'style-loader',
 					{
 						loader: 'css-loader',
-						options: { modules: true }
-					}
-				]
+						options: { modules: true, sourceMap: true }
+					},
+					'postcss-loader'
+				],
+
+
 			}
 		]
 	},
@@ -43,5 +46,5 @@ module.exports = {
 		historyApiFallback: true, //不跳转
 		inline: true //实时刷新
 	}
-
+	
 }

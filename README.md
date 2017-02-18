@@ -320,3 +320,53 @@ export default Greeter
 有兴趣可以去瞅瞅文档[我是文档](https://github.com/css-modules/css-modules)
 
 
+###  CSS预处理器
+
+** 常用的*Less Loader*、
+*Sass Loader*、
+*Stylus Loader* 还有个平台型处理器*PostCSS*  就用这个举例了**
+
+老样子 先安装 顺便装上autoprefixer这个神器
+```
+npm install --save-dev postcss-loader autoprefixer
+```
+#### 写配置文件
+```
+			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: { modules: true, sourceMap: true }
+					},
+					'postcss-loader'
+				],
+
+
+			}
+```
+#### 然后去写postcss的配置文件 postcss.config.js,引入autoprefixer
+```
+module.exports = {
+  plugins: [
+    require('autoprefixer')
+  ]
+}
+```
+####  写个需要兼容的css属性试一下， 比如
+```
+	display: flex;
+```
+##### 去看一下  好用了没
+#### 有时候会有不同的兼容要求 去package.json写一下browserslist
+```
+  "browserslist": [
+    "> 5%"
+  ]
+```
+#### [具体看着](https://github.com/postcss/autoprefixer),[browserslist在这](https://github.com/ai/browserslist#config-file)
+
+
+
+
