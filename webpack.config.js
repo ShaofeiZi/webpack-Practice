@@ -50,7 +50,9 @@ module.exports = {
 		inline: true //实时刷新
 	},
 	plugins: [
-		new webpack.BannerPlugin("嘿嘿，生效了")//在这个数组中new一个就可以了
+		new webpack.BannerPlugin("嘿嘿，生效了"),//在这个数组中new一个就可以了
+		new webpack.optimize.UglifyJsPlugin() // 代码混淆
+
 	],
 
 }
