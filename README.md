@@ -370,3 +370,18 @@ module.exports = {
 
 # Setp5 插件
 
+** 先说一波 Loaders和Plugins不是一个玩意的  loaders是在打包构建过程中用来处理源文件的（JSX，Scss，Less..），一次处理一个，插件并不直接操作单个文件，它直接对整个构建过程其作用。嗯 webpack的两根大腿
+### 先看咋用
+首先 用啥装啥。。233 ，然后 我用webpack。。。。
+在配置文件最上面引入。。
+```
+var webpack = require('webpack');
+```
+然后 用BannerPlugin写点字  嗯 证明有效啊
+```
+	plugins: [
+		new webpack.BannerPlugin("嘿嘿，生效了")//在这个数组中new一个就可以了
+	],
+```
+#### 重新生成下 然后浏览器看下  bundle.js 是不是在头上多了/*! 嘿嘿，生效了 */
+> 插件太多。。套路一样。就不演示了

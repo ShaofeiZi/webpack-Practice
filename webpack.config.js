@@ -1,3 +1,6 @@
+var webpack = require('webpack');
+
+
 module.exports = {
 	devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
 
@@ -45,6 +48,9 @@ module.exports = {
 		port: 9000, // 指定端口 不指定端口默认为1080
 		historyApiFallback: true, //不跳转
 		inline: true //实时刷新
-	}
-	
+	},
+	plugins: [
+		new webpack.BannerPlugin("嘿嘿，生效了")//在这个数组中new一个就可以了
+	],
+
 }
