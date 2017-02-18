@@ -108,21 +108,34 @@ devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
 ```
 npm install --save-dev webpack-dev-server
 ```
+### 然后就可以直接在终端输入
+```
+webpack-dev-server --open
+```
+启动了，默认8080端口
+或者我们可以用配置文件来启动
+
 devserver配置选项 |	功能描述
 ----------|---
 contentBase	|默认webpack-dev-server会为根文件夹提供本地服务器，如果想为另外一个目录下的文件提供本地服务器，应该在这里设置其所在目录（本例设置到“public"目录）
 port	|设置默认监听端口，如果省略，默认为”8080“
+compress| 是否使用Gzip
 inline	|设置为true，当源文件改变时会自动刷新页面
-colors|	设置为true，使终端输出的文件为彩色的
 historyApiFallback	|在开发单页应用时非常有用，它依赖于HTML5 history API，如果设置为true，所有的跳转将指向index.html
-
+#### 更多配置文件[开发中 Server(DevServer)](https://doc.webpack-china.org/configuration/dev-server/#devserver)
 ### 在配置文件中加入配置
 ```
-	
 	devServer: {
-		contentBase: "./public", //本地服务器所加载的页面所在的目录
-		colors: true, //终端中输出结果为彩色
+		contentBase: __dirname+"/public", //本地服务器所加载的页面所在的目录
+		compress: true,  // 是否使用Gzip
+		port: 9000, // 指定端口 不指定端口默认为1080
 		historyApiFallback: true, //不跳转
 		inline: true //实时刷新
 	}
+```
+### 再去加个快捷启动命令
+```
+  "scripts": {
+    "server": "webpack-dev-server"
+  },
 ```
