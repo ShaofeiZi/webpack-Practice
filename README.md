@@ -386,15 +386,12 @@ var webpack = require('webpack');
 #### 重新生成下 然后浏览器看下  bundle.js 是不是在头上多了/*! 嘿嘿，生效了 */
 > 插件太多。。套路一样。就不演示了
 
-### 东西少点。。来个优化的吧
-插件名|说明
----|----
-UglifyJsPlugin|压缩JS代码；
-ExtractTextPlugin|分离CSS和JS文件
 
-UglifyJS plugins 是内置插件，
+
+UglifyJS plugins 是内置插件，用于代码压缩混淆
 直接在插件配置那加上
 ```
 		new webpack.optimize.UglifyJsPlugin() // 代码混淆
 ```
+
 OK  然后直接去配置文件的plugins配置，重新生成bundle文件 你会发现。。变量名变成a,b,c了。。。。
