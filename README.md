@@ -164,5 +164,21 @@ npm install --save-dev json-loader
 		]
 	},
 ```
+#### 写个JSON文件  我就乱起名了。。jsontext.json
+```
+{
+  "testText": "啦啦啦，我是JSON"
+}
+```
+#### Greeter.js去引用一下
+```
+var testText = require('./jsontext.json'); //引入json
+
+module.exports = function () {
+  var greet = document.createElement('div');
+  greet.textContent = testText.testText; // 使用
+  return greet;
+};
+```
 
  
