@@ -105,7 +105,9 @@ devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
 ```
 ## 使用webpack构建本地服务器
 ### 先安装
+
 ```
+npm install --g webpack-dev-server
 npm install --save-dev webpack-dev-server
 ```
 ### 然后就可以直接在终端输入
